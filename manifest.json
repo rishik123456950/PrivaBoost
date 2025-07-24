@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "PrivaBoost",
+  "version": "1.0.2",
+  "description": "Block ads/trackers, save RAM, and monitor resources",
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "system.memory",
+    "notifications"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_icon": "icons/icon32.png"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ad_tracker_rules",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}

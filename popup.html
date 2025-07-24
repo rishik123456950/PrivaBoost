@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrivaBoost</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../icons/icon48.png" alt="PrivaBoost" class="logo">
+      <h1>PrivaBoost</h1>
+      <div class="badge" id="memoryBadge">...</div>
+    </header>
+    
+    <main>
+      <!-- Privacy Card -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Privacy Protection</h2>
+          <label class="switch">
+            <input type="checkbox" id="adblockToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="card-body">
+          <p>Blocked <span id="blockCount">0</span> trackers</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="blockProgress"></div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Performance Card -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Performance Boost</h2>
+        </div>
+        <div class="card-body">
+          <label class="setting">
+            <span>Suspend inactive tabs after:</span>
+            <input type="number" id="suspensionTime" min="1" max="120"> min
+          </label>
+          
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-value" id="activeTabs">0</span>
+              <span class="stat-label">Active tabs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="savedRAM">0MB</span>
+              <span class="stat-label">Saved RAM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Resource Monitor -->
+      <section class="card">
+        <h2>Resource Monitor</h2>
+        <div class="resource-meter">
+          <div class="memory-bar" id="memoryBar"></div>
+        </div>
+        <p id="memoryText">Loading memory info...</p>
+      </section>
+      
+      <!-- Whitelist Settings -->
+      <section class="card">
+        <h2>Whitelisted Sites</h2>
+        <p class="hint">Sites that won't be suspended (comma separated)</p>
+        <textarea id="whitelist" rows="3" placeholder="gmail.com, notion.so"></textarea>
+        <div class="actions">
+          <button id="saveSettings" class="primary">Save Settings</button>
+          <button id="resetSettings">Reset Defaults</button>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <p>PrivaBoost v1.0 · <a href="#" id="helpLink">Help</a></p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
